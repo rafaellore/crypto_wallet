@@ -79,3 +79,39 @@ Sendo assim…
 Acesse a rota coins
 
 http://localhost:3000/coins
+
+## AULA 07 - Ambientes de desenvolvimento
+
+- Por padrão, o Rails vem com 3 ambientes:
+  - Desenvolvimento, Teste e Produção.
+- Esses ambientes possibilitam ter configurações isoladas para cada ambiente.
+- A sua Gemfile é a forma mais simples de perceber isso.
+- [Link para mais informações](http://guides.rubyonrails.org/configuring.html#creating-rails-environments)
+
+para rodar o ambiente de prod, use o comando: `rails s -e production`
+
+## AULA 08 - Entendendo o fluxo MVC
+
+Basicamente, quando criamos o scaffold do Coin, ele cria automaticamente o model views e controller para Coin. POdemos acessar ele por /coins e ter a lista de coins registradas. Mas, porque isso ocorre?
+
+Ocorre porque no arquivo controller dela, com o nome `coins_controller` contem actions, e dentre elas uma chamada index, que quando acessamos /coins é chamada, e como estamos acessando só `/coins`, que será o endereço index, ele chama o arquivo de mesmo nome da view, ficando em `app/views/coins/index/html.erb`
+
+## Conhecendo os generators
+
+Os genetators são responsavéis por gerar as paradas prontas pra gente, mas existe diversas variações das paradas que precisamos. Inclusive, podemos adicionar novos generators adicionando novas gems (lembrando que gems são praticamente libs) no projeto.
+
+Por exemplo podemos usar o comando seguinte para criar comente um controller:
+
+`rails g controller welcome index`
+
+e depois, excluir o mesmo com:
+
+`rails d controller welcome`
+
+**Perceba que pra deletar usamos d e para gerar usamos o g**
+
+Pra gerar algo seguindo o padrão MVC, usamos o scaffold, mas existe também um generator só pra gerar uma view, que seria o aqruivo controller com uma view index:
+
+`rails g controller welcome index`
+
+precisa passar o index para ele criar somente esse método na controller
