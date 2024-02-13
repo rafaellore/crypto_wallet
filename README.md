@@ -115,3 +115,24 @@ Pra gerar algo seguindo o padrão MVC, usamos o scaffold, mas existe também um 
 `rails g controller welcome index`
 
 precisa passar o index para ele criar somente esse método na controller
+
+## AULA 09 - ENTENDENDO O ERB
+
+ERB vem de Embedded Ruby.
+Em resumo, é uma forma de você mesclar texto com código Ruby.
+Parecido com o conceito do React de conseguirmos executar o JS dentro de HTML (JSX ou TSX).
+
+Um exemplo disso, seria utilizar a seguinte escritura:
+
+**execução:**
+<%= 1 + 1 %>
+<%= Date.today %>
+
+**comentário**
+<%# código de ruby %>
+
+# AULA 10 - HELPERS
+
+Como o nome sugere, são métodos prontos para podermos usar para facilitar a nossa vida. Um exemplo disso seria o link_to:
+
+<%= link_to "Cadastro de Moedas", coin_path %>
