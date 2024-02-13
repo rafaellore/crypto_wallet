@@ -136,3 +136,11 @@ Um exemplo disso, seria utilizar a seguinte escritura:
 Como o nome sugere, são métodos prontos para podermos usar para facilitar a nossa vida. Um exemplo disso seria o link_to:
 
 <%= link_to "Cadastro de Moedas", coin_path %>
+
+# AULA 11 - MAIS HELPS
+
+Um outro helper, seria o image_tag, que permite usar uma imagem como o nome sugere:
+
+<%= image_tag coin.url_image %>
+
+Recomendo olhar na documentação sobre.
