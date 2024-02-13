@@ -1,8 +1,9 @@
-<h1>Welcome</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>Bem vindo!</h1>
+<p>
+  <strong>Data: </strong> <%= data_br(Date.today) %>
+</p>
+<% 1 + 1 %>
 
-
-<%= 1 + 1 %>
-<%= Date.today %>
-
-<%= link_to "Cadastro de Moedas", coins_path %>
+<ul>
+  <li><%= link_to "Cadastro de Moedas", coins_path %></li>
+</ul>

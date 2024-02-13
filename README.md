@@ -144,3 +144,9 @@ Um outro helper, seria o image_tag, que permite usar uma imagem como o nome suge
 <%= image_tag coin.url_image %>
 
 Recomendo olhar na documentação sobre.
+
+# AULA 12 - CRIANDO SEUS PROPRIOS HELPERS
+
+O Rails permite que você crie seus próprios Helpers.
+Para isso, existe uma pasta` app/helpers` que permite esse feito. Perceba que essa pasta possui um arquivo` application_helper.rb` e outros arquivos com o nome das views \*\_helper.rb.
+Se o objetivo for criar um helper que seja usado globalmente, crie em application_helper. Todavia, podemos criar os helpers em qualquer desses arquivos e usar em qualquer lugar, mas por questões de organização, crie cada um dentro do seu contexto.
