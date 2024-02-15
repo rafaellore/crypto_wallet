@@ -235,3 +235,11 @@ Basicamente, se você criar um .html.erb com um underline \_, ele se torna um ht
 crie o arquivo `_menu.html.erb`, depois insira um html, e reutilize ele da seguinte forma:
 
 `<%= render "menu" %>`
+
+# AULA 20 - LAYOUT
+
+Basicamente, tem como usar um arquivo que todas as views passarão, como sendo um componente global de estilos parecido com o React.
+
+Ele fica em apllication.html.erb, sendo renderizado em `<%= yield %>`, inclusive, é nesse documento que fica o body das views.
+
+Podemos também customizar para uma página usar um layout especifico, fazendo assim no controller da view: `layout "nome_do_layout"`
