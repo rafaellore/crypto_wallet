@@ -214,3 +214,16 @@ Para fazer um teste, nesse mesmo arquivo, no método index crie uma variável `@
 Agora na view `app/views/coins/index.html.erb` adicione alinha `<%= @meu_nome %>` e salve.
 
 Perceba que ao acessar a página, agora seu nome aparecerá.
+
+# AULA 18 - PASSANDO PARÂMETROS PELA URL
+
+Vejamos o exemplo...
+http://localhost:3000/?nome=Jackson
+
+Acessando a URL acima, podemos informar o parâmetro nome para o servidor. No servidor, no controller, podemos acessá-lo através da variável global `params`:
+
+`params[:nome]`
+
+Assim podemos usar o valor que foi passado (Jackson) do jeito que quisermos.
+
+Lembrando que o params é um hash, parece bastante um objeto JS.
