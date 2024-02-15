@@ -227,3 +227,11 @@ Acessando a URL acima, podemos informar o parâmetro nome para o servidor. No se
 Assim podemos usar o valor que foi passado (Jackson) do jeito que quisermos.
 
 Lembrando que o params é um hash, parece bastante um objeto JS.
+
+# AULA 19 - USANDO PARTIALS
+
+Basicamente, se você criar um .html.erb com um underline \_, ele se torna um html reutilizavel, bastante parecido com o conceito de componente do React.
+
+crie o arquivo `_menu.html.erb`, depois insira um html, e reutilize ele da seguinte forma:
+
+`<%= render "menu" %>`
