@@ -204,4 +204,13 @@ Dá pra criar usando `c = Coin.new`, mas ele vai criar ele com as paradas vazias
 
 Basicamente usando o seguinte comando no console:
 
-Rails.env
+`Rails.env`
+
+# AULA 17 - USANDO VARIAVEIS DE INSTANCIA PARA PASSAR UM VALOR PARA A VIEW
+
+Observe o `app/controllers/coins_controller.rb`
+
+Para fazer um teste, nesse mesmo arquivo, no método index crie uma variável `@meu_nome = "Jackson Pires"`
+Agora na view `app/views/coins/index.html.erb` adicione alinha `<%= @meu_nome %>` e salve.
+
+Perceba que ao acessar a página, agora seu nome aparecerá.
