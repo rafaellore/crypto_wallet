@@ -156,3 +156,16 @@ Se o objetivo for criar um helper que seja usado globalmente, crie em applicatio
 Vamos começar fazendo o mapeamento da rota
 padrão. O arquivo do Rails que faz o mapeamento das rotas é o
 config/routes.rb
+
+# AULA 14 - ENTENDO SOBRE RESOURCES E CRIANDO ROTAS NA MÃO
+
+Quando usamos a palavra resources no mapeamento das rotas do Rails, de forma automática ele entenderá que queremos criar 7 rotas padrão para o CRUD
+
+Para criar suas próprias rotas apenas declare o verbo e a url e o controller e action que deve responder à urlindicada, veja o exemplo:
+`get '/inicio', to: 'welcome#index'`
+
+A rota acima permitirá que seja digitada a url /inicio e ela acessará o controller welcome e ação index.
+
+pra usar o resources e criar todas as rotas pra uma model, é assim:
+
+`resources: coins`
