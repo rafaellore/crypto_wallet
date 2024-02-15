@@ -199,3 +199,9 @@ url_image: "http://"
 )`
 
 Dá pra criar usando `c = Coin.new`, mas ele vai criar ele com as paradas vazias, e ir subistituindo com c.description, etc.
+
+# AULA 16 - COMO SABER EM QUAL AMBIENTE ESTAMOS?
+
+Basicamente usando o seguinte comando no console:
+
+Rails.env
