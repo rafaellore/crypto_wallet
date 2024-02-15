@@ -169,3 +169,33 @@ A rota acima permitirá que seja digitada a url /inicio e ela acessará o contro
 pra usar o resources e criar todas as rotas pra uma model, é assim:
 
 `resources: coins`
+
+# AULA 15 - COMO USAR O RAILS CONSOLE PARA ACESSAR A APLICAÇÃO
+
+Primeiro nós instalamos o pry para ver as paradas bonitinhas no console, onde adicionamos a gem no gemfile (seria isso um irmão do package.json?)
+
+Depois, para rodar o console do rails, usamos o seguinte comando:
+
+`rails c`
+
+Usando o console, podemos acessar diversas coisas relacionadas ao projeto, como informações do projeto:
+
+`app.root_path`
+
+Podemos acessar os helps também, que são os métodos utilitários:
+
+`helper.link_to "teste", "/teste"`
+
+Podemos acessar até mesmo o helper que criamos:
+
+`helper.data_br(Date.today)`
+
+Podemos usar o console pra usar uma model também, e criar uma moeda:
+
+`c = Coin.create!(
+description: "Dash",
+acronym: "DASH",
+url_image: "http://"
+)`
+
+Dá pra criar usando `c = Coin.new`, mas ele vai criar ele com as paradas vazias, e ir subistituindo com c.description, etc.
