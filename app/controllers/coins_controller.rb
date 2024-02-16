@@ -6,7 +6,6 @@ class CoinsController < ApplicationController
   # GET /coins or /coins.json
   def index
     @coins = Coin.all
-
     @meu_nome = 'Rafael'
   end
 

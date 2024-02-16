@@ -243,3 +243,17 @@ Basicamente, tem como usar um arquivo que todas as views passarão, como sendo u
 Ele fica em apllication.html.erb, sendo renderizado em `<%= yield %>`, inclusive, é nesse documento que fica o body das views.
 
 Podemos também customizar para uma página usar um layout especifico, fazendo assim no controller da view: `layout "nome_do_layout"`
+
+# AULA 21 - ENTENDENDO O FLUXO MVC DO CRUD (INDEX)
+
+Tudo começa com uma requisição (request) que o usuário faz. Essa requisição é roteada para um controller e uma action.
+
+A action/controller é processada e o resultado (response) é enviado para o usuário.
+
+No caso da action index, todas as moedas são buscadas no model Coin e enviadas através da variável de instância `@coins`. Ao chegar na view, a variável `@coins` é iterada e processada junto ao HTML para que sejam mostradas todas as moedas.
+
+# AULA 22 - ENTENDENDO O FLUXO MVC DO CRUD (SHOW E DELETE) + FILTROS RAILS
+
+No caso da action show, a request é feita em conjunto com um ID que identifica qual a moeda que será mostrada, pois antes da action é rodado o filtro :set_coin, onde a moeda é pesquisada pelo ID e enviada para a view através da variável @coin
+
+A mesma coisa ocorre para o delete, a diferença é que ele usa essa variável coin para usar o coin.destroy, e retornar uma resposta em html, retornando para a página index com um notice, e uma resposta json.
