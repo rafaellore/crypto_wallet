@@ -281,3 +281,9 @@ Após preencher o formulário e clicar no botão para cadastrar a requisição d
 Lá a nova moeda é criada com os dados que foram enviados do formulário. Tudo através da variável `params`.
 
 Ao final a requisição é redirecionada para o path `show`, a fim de mostrar a moeda criada.
+
+# AULA 24 - ENTENDENDO O FLUXO EDIT & UPDATE
+
+Tudo começa com uma requisição (request) que o usuário faz para editar uma moeda. A rota nos leva até a action edit que encontra a moeda e envia através da variável @coin a moeda a ser editada para a view `edit.html.erb`. Após editar a moeda na view o usuário clicará no botão para atualizá-la.
+O botão submeterá as alterações via PATCH para a action `update`, que localiza e atualiza a moeda com os dados recebidos via params.
+Após atualizar, o usuário é redirecionado para o show, que mostra os dados atuais da moeda.
