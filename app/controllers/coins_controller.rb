@@ -28,6 +28,8 @@ class CoinsController < ApplicationController
 
     respond_to do |format|
       if @coin.save
+        # Redirects to URL /coins/1, passing notice as params
+        # This could be done using redirect_to coin_path(@coin), notice: "Coin was successfully created."
         format.html { redirect_to coin_url(@coin), notice: "Coin was successfully created." }
         format.json { render :show, status: :created, location: @coin }
       else

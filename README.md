@@ -257,3 +257,27 @@ No caso da action index, todas as moedas são buscadas no model Coin e enviadas 
 No caso da action show, a request é feita em conjunto com um ID que identifica qual a moeda que será mostrada, pois antes da action é rodado o filtro :set_coin, onde a moeda é pesquisada pelo ID e enviada para a view através da variável @coin
 
 A mesma coisa ocorre para o delete, a diferença é que ele usa essa variável coin para usar o coin.destroy, e retornar uma resposta em html, retornando para a página index com um notice, e uma resposta json.
+
+# AULA 23 - ENTENDENDO O FLUXO MVC DO CRUD (NEW E CREATE)
+
+**FLUXO DO NEW**
+
+Para gerar uma nova moeda será usado inicialmente um path para um novo elemento, sendo esse caminho `coins/new`.
+
+Ao acessar esse path, o controller gera uma instância vazia do model Coin `Coin.new`.
+
+Isso fará com que a variável `@coin` possua todos os campos (vazios) e permitirá que o Rails possa montar a view (new.html.erb), enviando @coins para ela e com um formulário para a nova moeda.
+
+Esse formulário nos permite acessar alguns utilitários, como form.label, form.text_field, etc.
+
+**fluxo do CREATE**
+
+O formulário é montado com o helper form_with (novo no Rails 5)
+
+https://guiarails.com.br/form_helpers.html
+
+Após preencher o formulário e clicar no botão para cadastrar a requisição do tipo `POST` será enviada ao `controller` que rodará a action `create`.
+
+Lá a nova moeda é criada com os dados que foram enviados do formulário. Tudo através da variável `params`.
+
+Ao final a requisição é redirecionada para o path `show`, a fim de mostrar a moeda criada.
