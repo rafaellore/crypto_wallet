@@ -287,3 +287,33 @@ Ao final a requisição é redirecionada para o path `show`, a fim de mostrar a 
 Tudo começa com uma requisição (request) que o usuário faz para editar uma moeda. A rota nos leva até a action edit que encontra a moeda e envia através da variável @coin a moeda a ser editada para a view `edit.html.erb`. Após editar a moeda na view o usuário clicará no botão para atualizá-la.
 O botão submeterá as alterações via PATCH para a action `update`, que localiza e atualiza a moeda com os dados recebidos via params.
 Após atualizar, o usuário é redirecionado para o show, que mostra os dados atuais da moeda.
+
+# AULA 25 - ENTENDENDO SOBRE PERMISSÃO DE PARÂMETROS
+
+A permissão de parâmetros é uma prática que visa informar quais dados que estão chegando ao controller são permitidos para serem manipulados.
+O Rails trata isso através do framework Action Controller e nos dá os métodos require e permit para usarmos com essa finalidade
+
+https://api.rubyonrails.org/classes/ActionController/Parameters.html
+
+Veja o Exemplo:
+params = ActionController::Parameters.new({person: {name: "Francesco",age: 22,role: "admin"}})
+permitted = params.require(:person).permit(:name, :age)
+
+# AULA 26 - A TASK DB:SEED
+
+Imagine a seguinte situação… Você começa a testar seu software cadastrando novas moedas com todos os dados, etc. Em dado momento, você precisa apagar todos os dados para corrigir algo no BD, ou mesmo, passa seu projeto para alguém sem os dados.
+
+O Rails já possui um mecanismo para isso chamado `"db:seed"` que é a task que podemos invocar para fazer o preenchimento inicial dos dados.
+
+Para o nosso caso, vamos criar mecanismo para que caso apaguemos todos os dados, possamos preencher com novos sem muito esforço. Sendo assim, vá em `db/seed.rb` e adicione as
+seguintes linhas:
+
+```
+Coin.create!(
+  description: "Bitcoin"
+  acronym: "BTC"
+  url_image:
+  "https://upload.wikimedia.org/wikipedia/
+  commons/c/cf/Bitcoin.com_logo.png"
+)
+```

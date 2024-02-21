@@ -7,3 +7,22 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Coin.create!(
+  description: 'Bitcoin',
+  acronym: 'BTC',
+  url_image: 'https://assets.coincap.io/assets/icons/btc@2x.png'
+)
+
+Coin.create!(
+  description: 'Etherium',
+  acronym: 'ETH',
+  url_image: 'https://assets.coincap.io/assets/icons/eth@2x.png'
+)
+
+Coin.create!(
+  description: 'Dash',
+  acronym: 'DASH',
+  url_image: 'https://assets.coincap.io/assets/icons/dash@2x.png'
+
+)
