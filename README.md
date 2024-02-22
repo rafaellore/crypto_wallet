@@ -317,3 +317,44 @@ Coin.create!(
   commons/c/cf/Bitcoin.com_logo.png"
 )
 ```
+
+# AULA 28 - CRIANDO SUAS PRÓPRIAS TASKS
+
+O `%x` permite que executemos comando no terminal a partir de um código ruby.
+
+Para testar, abra o IRB e digite a instrução:
+
+`puts %x(ls)`
+
+O resultado deve ser a lista de pastas da sua aplicação.
+
+No Rails é possível criar suas próprias tasks de forma
+muito simples. Para isso, rode:
+
+`rails g task <nome do namespace> <nome da task>`
+
+Ex:
+`rails g task dev setup`
+
+Isso gerará a task `dev:setup` que pode ser usada para criarmos tudo necessário para a configuração do ambiente de desenvolvimento
+
+```
+ %x(rake db:drop db:create db:migrate db:seed)
+```
+
+Agora, roda o seguinte comando para executar a task:
+
+`rails dev:setup`
+
+# AULA 29 - MELHORANDO A NOSSA TASK
+
+Basicamente, nós melhoramos como nossa task é mostrada no terminal + refatorando ela, usando a gem `tty-spinner` + uma função com `yield`
+
+```
+def show_spinner(message, message_end = 'Done!')
+  spinner = TTY::Spinner.new("[:spinner] #{message}", format: :dots)
+  spinner.auto_spin
+  yield
+  spinner.success("(✓) #{message_end}")
+end
+```
