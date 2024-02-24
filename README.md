@@ -359,7 +359,7 @@ def show_spinner(message, message_end = 'Done!')
 end
 ```
 
-# AULA - MELHORANDO O SEEDS
+# AULA 30 - MELHORANDO O SEEDS
 
 Chegou a hora de melhorarmos também o `seeds.rb`
 Para isso podemos antes de mais nada diminuir a quantidade de duplicações usando o create com um
@@ -373,3 +373,14 @@ Mas, ainda assim se você rodar o rails db:seeds vai
 perceber um importante problema. Sempre que rodamos o referido comando as moedas são cadastradas repetidas em nosso sistema pois não há uma verificação que avalie se já existem moedas cadastradas. Para nossa sorte isso é bem fácil de resolver.
 
 O Active Record nos provê um método chamado `find_or_create_by` que permite pesquisar se um determinado registro já existe antes de cadastrá-lo.
+
+# AULA 31 - ADICIONANDO O CADASTRO DE TIPOS DE MINERAÇÃO
+
+Basicamente, vamos criar uma nova tabela e CRUD que será reponsável por conter os tipos de mineração, para isso vamos rodar o comando do scaffold para criar o CRUD:
+
+```
+rails g scaffold MiningType name:string acronym:string
+```
+
+Após gerar o CRUD, faça a migração e ajuste o link na página principal da aplicação.
+Aproveite e ajuste também o `dev:rake` para cadastrar os tipos de mineração e os tipos de moedas
