@@ -384,3 +384,16 @@ rails g scaffold MiningType name:string acronym:string
 
 Após gerar o CRUD, faça a migração e ajuste o link na página principal da aplicação.
 Aproveite e ajuste também o `dev:rake` para cadastrar os tipos de mineração e os tipos de moedas
+
+# AULA 31 - CORRIGINDO O CAMPO COM NOME ERRADO DE TIPOS DE MINERAÇÃO
+
+Sendo assim temos duas opções, ou alterar em todos os lugares onde o nome do campo “name” aparece, ou, como ainda não fizemos nada além do CRUD, apagar e recriá-lo da forma certa. Sendo assim, vamos preferir apagar e recriar por ser mais simples. Veja…
+
+
+```
+rails db:rollback
+rails d scaffold MiningType
+rails g scaffold MiningType description:string acronym:string
+rails db:migrate
+```
+
