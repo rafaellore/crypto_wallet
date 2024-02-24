@@ -358,3 +358,18 @@ def show_spinner(message, message_end = 'Done!')
   spinner.success("(✓) #{message_end}")
 end
 ```
+
+# AULA - MELHORANDO O SEEDS
+
+Chegou a hora de melhorarmos também o `seeds.rb`
+Para isso podemos antes de mais nada diminuir a quantidade de duplicações usando o create com um
+Array de Hashes, assim, por exemplo:
+
+```
+Coin.create!([{description: "Bitcoin"},{description: "Ethereum"}])
+```
+
+Mas, ainda assim se você rodar o rails db:seeds vai
+perceber um importante problema. Sempre que rodamos o referido comando as moedas são cadastradas repetidas em nosso sistema pois não há uma verificação que avalie se já existem moedas cadastradas. Para nossa sorte isso é bem fácil de resolver.
+
+O Active Record nos provê um método chamado `find_or_create_by` que permite pesquisar se um determinado registro já existe antes de cadastrá-lo.
