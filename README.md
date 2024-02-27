@@ -389,7 +389,6 @@ Aproveite e ajuste também o `dev:rake` para cadastrar os tipos de mineração e
 
 Sendo assim temos duas opções, ou alterar em todos os lugares onde o nome do campo “name” aparece, ou, como ainda não fizemos nada além do CRUD, apagar e recriá-lo da forma certa. Sendo assim, vamos preferir apagar e recriar por ser mais simples. Veja…
 
-
 ```
 rails db:rollback
 rails d scaffold MiningType
@@ -397,3 +396,15 @@ rails g scaffold MiningType description:string acronym:string
 rails db:migrate
 ```
 
+# AULA 32 - CRIANDO UMA MIGRATION STANDALONE
+
+Vamos começar criando uma migração para o novo campo que será adicionado na tabela de moedas (coins).
+Para isso, rode o seguinte comando:
+
+`rails g migration AddMiningTypeToCoins mining_type:references`
+
+OBS: REMOVER O NULL:FALSE GERADO NO COMANDO!
+
+Essa migração vai adicionar um campo na tabela coins que fará um relacionamento/associação com a tabela de tipos de mineração. Perceba também que isso não cria nem altera nenhuma view.
+
+Após criar a migração você deve executar o rails `db:migrate` para que as alterações sejam aplicadas ao banco de dados.
