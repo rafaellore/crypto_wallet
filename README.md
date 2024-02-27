@@ -408,3 +408,16 @@ OBS: REMOVER O NULL:FALSE GERADO NO COMANDO!
 Essa migração vai adicionar um campo na tabela coins que fará um relacionamento/associação com a tabela de tipos de mineração. Perceba também que isso não cria nem altera nenhuma view.
 
 Após criar a migração você deve executar o rails `db:migrate` para que as alterações sejam aplicadas ao banco de dados.
+
+# AULA 33 - ASSOCIAÇÃO belongs_to
+
+Isso quer dizer que os registros desse model Coin estarão associados (pertencendo a) a um registro do model Mining Type.
+
+Faça testes no rails console:
+
+```
+c = Coin.first
+m = MiningType.first
+c.mining_type = m
+c.save!
+```
