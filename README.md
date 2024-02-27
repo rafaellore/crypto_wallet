@@ -421,3 +421,6 @@ m = MiningType.first
 c.mining_type = m
 c.save!
 ```
+
+Percebemos que tudo já está pronto em nossa tabela, faltando apenas indicar ao model `MiningType` que queremos efetuar essa associação.
+Sendo assim, basta adicionar `has_many :coins` no model `MiningType`.
