@@ -424,3 +424,52 @@ c.save!
 
 Percebemos que tudo já está pronto em nossa tabela, faltando apenas indicar ao model `MiningType` que queremos efetuar essa associação.
 Sendo assim, basta adicionar `has_many :coins` no model `MiningType`.
+
+# AULA 34 - OS MÉTODOS .MAP E .PLUNK
+
+Imagine que você tem um array e quer transformar ele
+em outro… ex:
+
+[1,2,3,4,5] => [2,4,6,8,10]
+
+Perceba que o segundo é baseado no primeiro. Poderíamos fazer uma iteração no primeiro para obter o segundo facilmente, mas, o ruby possui um método que permite a iteração de uma coleção retornando um novo array no final.
+
+O método `map` funciona assim…
+
+```
+[1,2,3,4,5].map do |i|
+  i *2
+end
+```
+
+ou se preferir…
+
+`[1,2,3,4,5].map { |i| i \*2 }`
+
+A saída será um novo array baseado no primeiro.
+[2,4,6,8,10]
+
+Por fim, temos o método pluck, que funciona de forma parecida com o map, mas que reduz ainda mais o esforço na hora de obter elementos determinados resultados em formato de Array, a partir de resultados do ActiveRecord. Veja:
+
+`Coin.all.pluck(:description)`
+
+# AULA 35 - CONHECENDO O HELPER SELECT
+
+Chegou a hora de ajustarmos a view para que seja possível selecionar o tipo de mineração, e para isso usaremos o helper select.
+
+Usaremos o select no form usado nas telas de edit e create:
+
+```
+  <div>
+    <%= form.label :mining_type_id,  style: "display: block" %>
+    <%= form.select('mining_type_id', MiningType.all.collect { |m| [m.description, m.id]}, {include_blank: 'Selecione...'}) %>
+  </div>
+```
+
+E precisamos liberar o envio desses dados no controller:
+
+```
+  def coin_params
+    params.require(:coin).permit(:description, :acronym, :url_image, :mining_type_id)
+  end
+```

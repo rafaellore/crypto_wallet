@@ -6,7 +6,7 @@ class CoinsController < ApplicationController
   # GET /coins or /coins.json
   def index
     @coins = Coin.all
-    @meu_nome = 'Rafael'
+    @meu_nome = "Rafael"
   end
 
   # GET /coins/1 or /coins/1.json
@@ -63,13 +63,14 @@ class CoinsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_coin
-      @coin = Coin.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def coin_params
-      params.require(:coin).permit(:description, :acronym, :url_image)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_coin
+    @coin = Coin.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def coin_params
+    params.require(:coin).permit(:description, :acronym, :url_image, :mining_type_id)
+  end
 end
