@@ -473,3 +473,29 @@ E precisamos liberar o envio desses dados no controller:
     params.require(:coin).permit(:description, :acronym, :url_image, :mining_type_id)
   end
 ```
+
+# AULA 36 - PADRONIZANDO O SELECT AO MVC
+
+Basicamente, nessa aula alteramos como é acessado os dados de MiningType no \_form de coins, que é uma view, pois estamos acessando os dados da model diretamente pela view, que o correto seria acessar pela controller e depois enviar para a view.
+
+Então vamos "migrar" esse código para o controller, mais especificamente criando um método privado chamado `set_mining_type_options`
+
+```
+def set_mining_type_options
+  @mining_type_options = MiningType.all.pluck(:description, :id)
+end
+```
+
+Em seguida, crie um filtro para executar o método no new, e no edit
+
+```
+before_action :set_mining_type_options, only: [:new, :edit]
+```
+
+Agora basta usar o `@mining_type_options` como opção do select…
+
+```
+<%= form.select("mining_type_id", @mining_type_options, {include_blank: 'Selecione...'}) %>
+```
+
+Prontinho! Agora estamos seguindo a arquitetura MVC!
