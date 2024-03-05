@@ -1,4 +1,6 @@
 <%= render "menu" %>
+<%= link_to 'Português', root_path(locale: 'pt-BR') %>
+<%= link_to 'Inglês', root_path(locale:'en') %>
 <h1><%= t("hello") %></h1>
 <p>
   <strong>Data: </strong> <%= data_br(Date.today) %>
