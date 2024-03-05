@@ -499,3 +499,12 @@ Agora basta usar o `@mining_type_options` como opção do select…
 ```
 
 Prontinho! Agora estamos seguindo a arquitetura MVC!
+
+# AULA 37 - APRENDENDO A USAR COOKIES
+
+Basicamente aprendemos a como setar cookies e session, usando os seguites métodos:
+
+```
+cookies[:curso] = "Curso de Ruby on Rails - Jackson Pires [COOKIE]"
+session[:curso] = "Curso de Ruby on Rails - Jackson Pires [SESSION]"
+```
