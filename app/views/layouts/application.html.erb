@@ -7,16 +7,16 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    params[:controller], media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag params[:controller], 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
-    <header>
-      <h1>HEADER PADRÃO</h1>
+  <body class="container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link active" %></li>
+        <li class="nav-item"><%= link_to "Moedas", coins_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Tipos de mineração", mining_types_path, class: "nav-link" %></li>
+      </ul>
     </header>
     <%= yield %>
-    <footer>
-      <h1>FOOTER PADRÃO</h1>
-    </footer>
   </body>
 </html>

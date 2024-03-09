@@ -2,6 +2,7 @@
   <% if coin.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(coin.errors.count, "error") %> prohibited this coin from being saved:</h2>
+
       <ul>
         <% coin.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -9,23 +10,28 @@
       </ul>
     </div>
   <% end %>
-  <div>
+
+  <div class="form-group">
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description, class:"form-control", placeholder:"Ex.: Bitcoin" %>
   </div>
-  <div>
+
+  <div class="form-group">
     <%= form.label :acronym, style: "display: block" %>
-    <%= form.text_field :acronym %>
+    <%= form.text_field :acronym, class:"form-control", placeholder:"Ex.: BTC" %>
   </div>
-  <div>
-    <%= form.label :url_image, style: "display: block" %>
-    <%= form.text_field :url_image %>
+
+  <div class="form-group">
+    <%= form.label :image_url, style: "display: block" %>
+    <%= form.text_field :image_url, class:"form-control", placeholder:"Ex.: http://img.ur/bitcoin.png" %>
+  </div>  
+
+  <div class="form-group">
+    <%= form.label :mining_type, style: "display:block" %>
+    <%= form.select("mining_type_id", @mining_type_options, { include_blank: 'Selecione...' }, class:"form-control") %>
   </div>
-  <div>
-    <%= form.label :mining_type_id,  style: "display: block" %>
-    <%= form.select('mining_type_id', @mining_type_options, {include_blank: 'Selecione...'}) %>
-  </div>
-  <div>
-    <%= form.submit %>
+  <br>
+  <div class="actions">
+    <%= form.submit nil, class:"btn btn-primary" %>
   </div>
 <% end %>

@@ -10,6 +10,43 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+  *= require bootstrap
  *= require_tree .
  *= require_self
  */
+/* CSS personalizado para o tema escuro */
+body {
+  background-color: #212529; /* cor de fundo escura */
+  color: #ffffff; /* cor do texto claro */
+}
+
+/* Invertendo as cores dos botões */
+.btn-primary,
+.btn-secondary,
+.btn-success,
+.btn-danger,
+.btn-warning,
+.btn-info,
+.btn-light,
+.btn-dark,
+.btn-outline-primary,
+.btn-outline-secondary,
+.btn-outline-success,
+.btn-outline-danger,
+.btn-outline-warning,
+.btn-outline-info,
+.btn-outline-light,
+.btn-outline-dark {
+  color: #ffffff; /* cor do texto claro */
+  background-color: #343a40; /* cor de fundo escura */
+  border-color: #343a40; /* cor da borda escura */
+}
+
+/* Invertendo as cores dos links */
+a {
+  color: #17a2b8; /* cor do link claro */
+}
+
+a:hover {
+  color: #138496; /* cor do link claro no hover */
+}

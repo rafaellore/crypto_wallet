@@ -1,24 +1,7 @@
-<%= render "menu" %>
-<%= link_to 'Português', root_path(locale: 'pt-BR') %>
-<%= link_to 'Inglês', root_path(locale:'en') %>
-<h1><%= t("hello") %></h1>
-<p>
-  <strong>Data: </strong> <%= data_br(Date.today) %>
-</p>
-<ul>
-  <li><%= link_to "Moedas", coins_path %></li>
-  <li><%= link_to "Tipos de mineração", mining_types_path %></li>
-</ul>
-<p>Você está no ambiente de:
-  <strong>
-    <%= ambiente_br %>
-  </strong>
-</p>
-<p>Meu nome é:
-  <%= @meu_nome %>
-</strong>
-</p>
-<p>Curso:
-  <%= @curso %>
-</strong>
-</p>
+<div class="jumbotron">
+  <h1 class="display-4"><%= t('welcome') %></h1>
+  <p class="lead"><%= t('messages.welcome')%></p>
+  <hr class="my-4">
+  <p><%= t('messages.menu')%></p>
+  <%= render "menu" %>
+</div>

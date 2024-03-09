@@ -1,7 +1,15 @@
+<div class="container">
+  <h1><%= t('show.coin') %></h1>
+
 <p style="color: green"><%= notice %></p>
+
 <%= render @coin %>
+
 <div>
-  <%= link_to "Edit this coin", edit_coin_path(@coin) %> |
-  <%= link_to "Back to coins", coins_path %>
-  <%= button_to "Destroy this coin", @coin, method: :delete, data: { confirm: "Tem certeza?" } %>
+  <%= button_to t('links.delete'), @coin, method: :delete, class:"btn btn-danger" %>
+  <br>
+  <%= link_to t('links.edit'), edit_coin_path(@coin), class:"btn btn-warning" %> |
+  <%= link_to t('links.back'), coins_path, class:"btn btn-primary" %>
+</div>
+
 </div>

@@ -50,8 +50,17 @@ gem "tty-spinner"
 
 gem "rails-i18n", "~> 7.0.0" 
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-jquery'
+  gem 'rails-assets-notifyjs'
+end
+
+gem 'popper_js', '~> 2.9.3'
+
 # Use Sass to process CSS
 gem "sassc-rails"
+
 
 
 group :development, :test do
